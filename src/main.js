@@ -8,11 +8,12 @@ import VueMoment from 'vue-moment';
 
 
 //Theme UX/UI
-import  './assets/css/core.css'; 
-import  './assets/css/core-dark.css'; 
-import  './assets/css/bootstrap.min.css'; 
-import  './assets/css/theme-default-dark.css'; 
-import  './assets/css/theme-default.css'; 
+import './assets/css/core.css';
+// import './assets/css/core-dark.css';
+// import './assets/css/bootstrap.min.css';
+// import './assets/css/theme-default-dark.css';
+import './assets/css/theme-default.css';
+import './assets/css/demo.css'
 
 //Icon
 import './assets/css/fonts/flag-icons.css'

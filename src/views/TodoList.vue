@@ -4,25 +4,32 @@
       <div class="card-header">
         <h4 class="card-title">Todo List</h4>
       </div>
-      <div style="display:flex">
-        <div class="totals _wrap text-left" style="width:75%">
-          <p class="totals _grand-total">
-            <span class="totals _total-number">{{todos.length}}</span>
-            <span class="totals _total-text">Task</span>
-          </p>
-          <div class="totals _detail">
-            <p class="text-dark">{{ todos.filter((todo) => !todo.completed).length }} Active</p>
-            <p class="text-dark">{{ todos.filter((todo) => todo.completed).length }} completed</p>
+      <div class="row align-items-center">
+        <div class="col-8">
+          <div class="totals _wrap text-left">
+            <p class="totals _grand-total">
+              <span class="totals _total-number">{{todos.length}}</span>
+              <span class="totals _total-text">Task</span>
+            </p>
+            <div class="totals _detail">
+              <p class="text-dark">{{ todos.filter((todo) => !todo.completed).length }} Active</p>
+              <p class="text-dark">{{ todos.filter((todo) => todo.completed).length }} completed</p>
+            </div>
           </div>
         </div>
-        <div class="text-right slectWeek">
-          <h4 style="margin-right:20px" for="week-select">Week:</h4>
-          <select id="week-select" class="form-control" v-model="selectedWeek" v-on:change="changeSelectWeek($event.target.value)" style="width: 235px;height: 50px">
-            <option v-for="(week, index) in weeks" :key="index" :value="week.weekNumber">{{ week.endOfWeek }} to {{week.startOfWeek}}</option>
-          </select>
+        <div class="col">
+          <div class="row align-items-center">
+            <div class="col-auto">
+              <h4 style="margin-top: 10px" class="text-center">Week:</h4>
+            </div>
+            <div class="col">
+              <select id="week-select" class="form-control" v-model="selectedWeek" v-on:change="changeSelectWeek($event.target.value)" style="width: 212px;height: 50px">
+                <option v-for="(week, index) in weeks" :key="index" :value="week.weekNumber">{{ week.endOfWeek }} to {{week.startOfWeek}}</option>
+              </select>
+            </div>
+          </div>
         </div>
       </div>
-
       <div class="card-content">
         <div class="card-body">
           <form @submit.prevent="addTask">
@@ -118,7 +125,7 @@ export default {
     getWeekSlectedChange(weekSelected) {
       var currentWeekObj = this.weeks.find(
         (week) => week.weekNumber == weekSelected
-      );    
+      );
       this.selectedWeek = currentWeekObj.weekNumber;
       this.dataSelectedWeek = currentWeekObj;
     },
@@ -352,7 +359,7 @@ input[type="date"]:focus {
   cursor: pointer;
 }
 .active {
-  border: 1px solid #d8d6de !important;
+  /* border: 1px solid #d8d6de !important; */
 }
 /* .hoverr:hover {
   border: 1px solid #d8d6de !important;
